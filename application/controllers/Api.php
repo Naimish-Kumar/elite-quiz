@@ -68,10 +68,10 @@ class Api extends REST_Controller
             $firebase_id = $this->post('firebase_id');
 
             // ------- Should be Enabled for server  ----------
-            $is_verify = $this->verify_user($firebase_id);
+            // $is_verify = $this->verify_user($firebase_id);
             // ---------------------------------------------------
             // ------- Should be Disable for server  ----------
-            // $is_verify=true;
+            $is_verify=true;
             // ---------------------------------------------------
             if ($is_verify) {
                 $type = $this->post('type');
@@ -84,6 +84,8 @@ class Api extends REST_Controller
                 $status = ($this->post('status')) ? $this->post('status') : '1';
                 $refer_coin = is_settings('refer_coin');
                 $earn_coin = is_settings('earn_coin');
+
+
 
                 if (!empty($friends_code)) {
                     $code = valid_friends_refer_code($friends_code);
